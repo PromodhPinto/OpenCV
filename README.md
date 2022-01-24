@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 # Configuration
 
-We have here TT files that may generate configuration files for:
+We have here config settings that may help generate synthetic data for each languages:
 
 * lang_code : language code
 * lang      : language
