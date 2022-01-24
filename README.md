@@ -50,21 +50,17 @@ the images are being generated under the directory `output` and the specific lan
 POST/Synthetic data generation
 Accept list of files
 
-{
-        "files": [
-            {
-                "locale": "en",
-                "path": "text file which contains paragraphs",
-                "type": "txt"
-            },
-            {....},
-            {....}
-        ]}
+Text corpus is added to the folder line_txt
+	filename structure: outcorpus_<language code>.txt
+Collected font files are added to this directory
+	folder & filename structure: font_files/<language code>/filename.ttf
+
 ```
 ### Response
 ```
 POST/Synthetic data generation
-Returns jpg files and corrsponding txt files which have ground truth.
+Returns jpg files and corrsponding txt files which have ground truth
+Returns json files containing the details for each image
 
 ```
 #### Input & Output Structure
