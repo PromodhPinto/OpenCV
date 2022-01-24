@@ -134,7 +134,7 @@ params = {
         "team": [
             {
                 "name": "Naresh Kumar Saini",
-                "aboutMe": "AAI Engineer at Tarento Technologies"
+                "aboutMe": "AI Engineer at Tarento Technologies"
             },
             {
                 "name": "Promodh Pinto J",
