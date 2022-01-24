@@ -31,10 +31,10 @@ We have here config settings that may help generate synthetic data for each lang
 The folder structure consists of the following files/directories
 * the `synthetic_data_generator` directory holds all services, each with their files
 * the `BG_PAPER` directory holds useful background images, needed to genereate the synthetic images
-* `real-data` directory holds real world data that is added along with the synthetic data
-* `line_txt` directory holds list of files containing text corpus for each language
-* `font_files` directory holds list of directories containing fonts for each language
-* `output` directory holds the generated data
+* the `real-data` directory holds real world data that is added along with the synthetic data
+* the `line_txt` directory holds list of files containing text corpus for each language
+* the `font_files` directory holds list of directories containing fonts for each language
+* the `output` directory holds the generated data
 
 ## APIs and Documentation
 After successful installation of prerequisites, you will have to run run.py
