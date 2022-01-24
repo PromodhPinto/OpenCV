@@ -50,10 +50,12 @@ the images are being generated under the directory `output` and the specific lan
 POST/Synthetic data generation
 Accept list of files
 
-Text corpus is added to the folder line_txt
+Text corpus is added to the directory line_txt
 	filename structure: outcorpus_<language code>.txt
 Collected font files are added to this directory
 	folder & filename structure: font_files/<language code>/filename.ttf
+Background images are added to the directory BG_PAPER
+	filename structure: <name>.jpg
 
 ```
 ### Response
