@@ -40,13 +40,14 @@ The folder structure consists of the following files/directories
 After successful installation of prerequisites, you will have to run run.py
 
 ```bash
-python app.py
+python run.py
 ```
-This service is used to tokenise sentences from a paragraph. After initiating this service,
-hit: ```http://0.0.0.0:5001/api/v0/tokenisation```
+This service is used to generate synthetic images from a text corpus specific to each language. After initiating this service,
+the images are being generated under the directory `output` and the specific language.
+
 ### Request Format
-```json
-POST/tokenisation
+```txt
+POST/Synthetic data generation
 Accept list of files
 
 {
@@ -62,24 +63,92 @@ Accept list of files
 ```
 ### Response
 ```
-POST/tokenisation
-Returns txt file which have tokenised sentences
+POST/Synthetic data generation
+Returns jpg files and corrsponding txt files which have ground truth.
 
-{
-    "files": [
-        {
-            "inputFile": "input txt file",
-            "outputFile": "text file conaining tokenised sentences",
-            "outputLocale": "en",
-            "outputType": "txt"
-        },
-        {....},
-        {....}
-    ],
-    "state": "SENTENCE-TOKENISED",
-    "status": "SUCCESS"
-}
 ```
-For more information about api documentation, please check @ ```https://github.com/project-anuvaad/anuvaad/blob/dev-sentence/anuvaad-etl/anuvaad-extractor/sentence/docs/sentence-api-contarct.yml```
+#### Input & Output Structure
+```
+
+"inputFile": "input txt file",
+"outputFile": "jpg files and corrsponding txt files which have ground truth and json files which have list of attributes mention below",
+"outputLocale": "en",
+"outputType": "jpg, txt and json"
+
+```
+##### Json Structure
+```
+* data-ocr.json
+
+{[
+{
+    "classType": "class1",
+    "backgroundColor": "white",
+    "source": "real",
+    "fontName": "timesroman",
+    "fontType": "unicode",
+    "fontVersion": "old",
+    "groundTruth": "\u0905\u0932\u094d\u092a\u0915\u093e\u0932\u0940\u0928 \u0915\u092e\u0940\u0936\u0928",
+    "imageFilename": "a527aa1a-6f8c-4217-892b-c7c311f0e987_class1_white_real_timesroman_unicode_old.png",
+    "boundingBox": {
+        "vertices": [
+            {
+                "x": 0,
+                "y": 0
+            },
+            {
+                "x": 331,
+                "y": 0
+            },
+            {
+                "x": 331,
+                "y": 43
+            },
+            {
+                "x": 0,
+                "y": 43
+            }
+        ]
+    }
+},
+
+{....},
+{....}
+        ]}
+        
+* params.json
+
+params = {
+    "datasetType": "ocr-corpus",
+    "languages": {
+        "sourceLanguage": lang_code
+    },
+    "collectionSource": [
+        "All domain"
+    ],
+    "domain": [
+        "general"
+    ],
+    "license": "cc-by-4.0",
+    "submitter": {
+        "name": "Project Anuvaad",
+        "aboutMe": "Open source project run by ekStep foundation.",
+        "team": [
+            {
+                "name": "Naresh Kumar Saini",
+                "aboutMe": "AAI Engineer at Tarento Technologies"
+            },
+            {
+                "name": "Promodh Pinto J",
+                "aboutMe": "Associate Software Engineer at Tarento Technologies"
+            }
+        ]
+    },
+    "format": "png",
+    "dpi": "72_dpi",
+    "imageTextType": "computer-typed-text"
+    }  
+
+For more information about api documentation, please check @ ```https://github.com/project-anuvaad/anuvaad``
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
