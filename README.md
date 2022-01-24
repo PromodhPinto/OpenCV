@@ -1,6 +1,6 @@
-# TOKENISATION
+# SYNTHETIC DATA GENERATION
 
-Tokenisation service Converts a paragraph into sentences.
+Synthetic data generation is the process of generating images and corresponding ground truths with different font family, font colour, font size, background color, space between words and many more.
 
 ## Prerequisites
 - python 3.7
@@ -10,8 +10,34 @@ You need to install some libraries. I have specified the names and versions of p
 ```bash
 pip install -r requirements.txt
 ```
+
+# Configuration
+
+We have here TT files that may generate configuration files for:
+
+* lang_code : language code
+* lang      : language
+* num_lines : the number of lines to generate dataset from raw corpus
+* bgs_path  : background images path
+* real_imgs : real data path
+* real_txt  : real data ground truth path
+* font_ path: font files path
+* noices    : noise filters to be applied
+* font_colour: font color codes
+* ...
+
+# Directories
+
+The folder structure consists of the following files/directories
+* the `synthetic_data_generator` directory holds all services, each with their files
+* the `BG_PAPER` directory holds useful background images, needed to genereate the synthetic images
+* `real-data` directory holds real world data that is added along with the synthetic data
+* `line_txt` directory holds list of files containing text corpus for each language
+* `font_files` directory holds list of directories containing fonts for each language
+* `output` directory holds the generated data
+
 ## APIs and Documentation
-After successful installation of prerequisites, you will have to run app.py
+After successful installation of prerequisites, you will have to run run.py
 
 ```bash
 python app.py
